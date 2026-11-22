@@ -16,7 +16,7 @@ export default function IntroGate({children}:{children:ReactNode}) {
   const {setLanguage}=useI18n();
   const [seen,setSeen]=useState(()=>hasSeenIntro(storage()));
   const [previewClosed,setPreviewClosed]=useState(false);
-  const preview=new URLSearchParams(location.search).get('intro')==='preview'&&!previewClosed;
+  const preview=(new URLSearchParams(location.search).get('intro')==='preview'||new URLSearchParams(window.location.search).get('intro')==='preview')&&!previewClosed;
   const show=shouldShowIntro(location.pathname,location.hash,seen,preview);
   const opened=useRef(false);
   useLayoutEffect(()=>{
@@ -26,6 +26,7 @@ export default function IntroGate({children}:{children:ReactNode}) {
   },[show,setLanguage]);
   function complete() {
     rememberIntro(storage());setSeen(true);setPreviewClosed(true);
+    if(import.meta.env.MODE==='github-pages'){const url=new URL(window.location.href);url.searchParams.delete('intro');window.history.replaceState(window.history.state,'',url);}
     if(location.search||location.hash){const params=new URLSearchParams(location.search);params.delete('intro');const search=params.toString();navigate('/'+(search?'?'+search:''),{replace:true});}
     requestAnimationFrame(()=>{window.scrollTo({top:0,behavior:'instant'});document.getElementById('main')?.focus({preventScroll:true});});
   }

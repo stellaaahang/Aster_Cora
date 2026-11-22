@@ -1,14 +1,15 @@
+import { publicAssets, publicUrl } from './publicAssets.ts';
 import { assets, modelConfig } from './product';
 
-export const journeyStages = [
+export const journeyStages = publicAssets([
   { id: 'earth', image: modelConfig.poster, width: 597, height: 512 },
   { id: 'launch', image: '/images/home/journey-detail-launch.webp', width: 1280, height: 853 },
   { id: 'orbit', image: assets.scenes[2], width: 1600, height: 900 },
   { id: 'station', image: assets.scenes[1], width: 1600, height: 900 },
   { id: 'moon', image: '/images/home/journey-detail-moon.webp', width: 1041, height: 494 },
   { id: 'mars', image: '/images/home/journey-detail-mars.webp', width: 1280, height: 644 },
-] as const;
-export const meetCoraBackground = '/images/home/meet-cora-stars.webp';
+] as const);
+export const meetCoraBackground = publicUrl('/images/home/meet-cora-stars.webp');
 /** User-selected Drift motion with pale blue/white light. */
 export const galaxyDrift = {
   glowIntensity: 0.35, starSpeed: 0.3, rotationSpeed: 0.03,

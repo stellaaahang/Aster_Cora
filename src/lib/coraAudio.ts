@@ -1,3 +1,4 @@
+import { publicUrl } from '../config/publicAssets.ts';
 import { coraVoice, findCoraVoiceClip } from '../config/coraVoice';
 import type { VoiceClip, VoiceLanguage } from '../config/coraVoice';
 
@@ -7,7 +8,7 @@ let pending: Promise<unknown> | undefined;
 export function prepareCoraAudio(refresh = false): Promise<unknown> {
   if (!refresh && manifest) return Promise.resolve(manifest);
   if (pending) return pending;
-  pending = fetch(coraVoice.manifest, { cache: 'no-cache' })
+  pending = fetch(publicUrl(coraVoice.manifest), { cache: 'no-cache' })
     .then(response => {
       if (!response.ok) throw new Error('Cora audio manifest unavailable');
       return response.json() as Promise<unknown>;

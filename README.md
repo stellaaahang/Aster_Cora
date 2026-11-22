@@ -85,6 +85,8 @@ tests/          # 资源和内容完整性检查
 
 ## 部署
 
+GitHub Pages 使用 `npm run build:pages` 生成 `dist-pages/`，Pages 的 Source 选择 GitHub Actions。自动部署工作流已提供，参见 [GitHub Pages 说明](docs/GITHUB-PAGES.md)。
+
 `dist/` 是静态网站，可部署到支持 SPA 回退的静态服务器。将 `/product`、`/applications`、`/about`、`/about/value`、`/contact` 等未知文件请求回退至 `index.html`。项目提供 `public/_redirects` 作为兼容平台的示例；其他服务器需自行设置相同规则。本站未配置域名或统计。
 
 ## 联系表单

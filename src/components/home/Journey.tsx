@@ -1,3 +1,4 @@
+import { publicUrl } from '../../config/publicAssets.ts';
 import { useMemo, useRef, useState } from 'react';
 import { useI18n } from '../../i18n/I18nProvider';
 import { journeyStages } from '../../config/home';
@@ -19,7 +20,7 @@ export default function Journey() {
   const stage = journeyStages[selected];
   const active = copy.stages[selected];
   const images = useMemo(() => journeyStages.map(({ id }, index) => ({
-    src: `/images/home/journey-${id}.webp`,
+    src: publicUrl(`/images/home/journey-${id}.webp`),
     alt: copy.stages[index].label,
     subtitle: copy.stages[index].phase,
   })), [copy.stages]);

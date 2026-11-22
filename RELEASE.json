@@ -1,7 +1,7 @@
 {
   "name": "Aster / Cora",
-  "packaged_at": "2026-11-22T00:40:55+08:00",
-  "source_commit": "e9ef68b55aab7091dff3c11314bd667a32beebc4",
+  "packaged_at": "2026-11-22T14:08:32+08:00",
+  "source_commit": "d62b168921b99ef06cb86259145bf1ad49fd97dd",
   "source_branch": "main",
   "build_command": "npm run build",
   "publish_directory": "dist",
@@ -20,7 +20,7 @@
   "checks": {
     "build": "passed",
     "unit_tests": {
-      "passed": 10,
+      "passed": 11,
       "failed": 0
     },
     "voice_files": "20/20 passed",
@@ -31,7 +31,9 @@
       "failed_resources": 0
     },
     "copied_source_unit_tests": "10/10 passed",
-    "production_checksums": "159/159 passed"
+    "production_checksums": "159/159 passed",
+    "pages_build": "passed",
+    "pages_browser": "11 groups passed"
   },
   "deployment_additions": [
     "部署说明.md",
@@ -43,5 +45,13 @@
     "SHA256SUMS.txt",
     "deploy/验证结果.json"
   ],
-  "readme_adjustments": "Deployment-guide link, current folder path and updated page descriptions; website implementation unchanged."
+  "readme_adjustments": "Deployment-guide link, current folder path and updated page descriptions; website implementation unchanged.",
+  "github_pages": {
+    "repository": "stellaaahang/Aster_Cora",
+    "url": "https://stellaaahang.github.io/Aster_Cora/",
+    "command": "npm run build:pages",
+    "output": "dist-pages",
+    "routing": "hash",
+    "publishing_source": "GitHub Actions"
+  }
 }

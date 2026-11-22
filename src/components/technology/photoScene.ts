@@ -1,5 +1,6 @@
+import { publicUrl } from '../../config/publicAssets.ts';
 export const photoSize = { width: 320, height: 180 };
-export const astronautImages = [1, 2].map(index => `/images/tech/photo-astronaut-${index}.png`);
+export const astronautImages = [1, 2].map(index => publicUrl(`/images/tech/photo-astronaut-${index}.png`));
 export type PhotoPoint = { x: number; y: number };
 export type PhotoPositions = [PhotoPoint | null, PhotoPoint | null];
 

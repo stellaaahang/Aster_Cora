@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "Outer ?intro=preview opens English pass with all artwork",
+    "English and Chinese MP3 playback under repository prefix",
+    "Home same-page anchor with hash routing",
+    "Route and refresh: product",
+    "Route and refresh: applications",
+    "Route and refresh: about",
+    "Route and refresh: about/value",
+    "Route and refresh: contact",
+    "Modular Design deep link and images",
+    "QR sample image decodes from repository prefix",
+    "Mobile hash-query opening and layout"
+  ],
+  "errors": [],
+  "badRequests": []
+}

@@ -1,3 +1,4 @@
+import { publicUrl } from '../config/publicAssets.ts';
 import { useEffect, useRef, useState } from 'react';
 import { resolveCoraAudio } from '../lib/coraAudio';
 import { useI18n } from '../i18n/I18nProvider';
@@ -31,7 +32,7 @@ export default function useCoraVoice(message: string) {
     if (activePlayback?.owner === owner.current) activePlayback = undefined;
   }
   function createPlayer(src: string) {
-    const player = new Audio(src);
+    const player = new Audio(publicUrl(src));
     player.preload = 'auto';
     player.volume = .9;
     player.playbackRate = 1;

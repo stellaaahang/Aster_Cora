@@ -1,3 +1,4 @@
+import { publicUrl } from '../../config/publicAssets.ts';
 import { useEffect, useRef, useState } from 'react';
 import type { KeyboardEvent } from 'react';
 import { assets } from '../../config/product';
@@ -61,7 +62,7 @@ export default function OpeningPass({onComplete}:{onComplete:()=>void}) {
               <div className="pass-issuer"><img src={assets.logo} alt="Aster" width="87" height="28"/></div>
               <div className="pass-artwork">
                 <Image className="pass-space-art" src={passConfig.illustration} alt={c.imageAlt} width="700" height="700" loading="eager" fetchPriority="high" draggable={false}/>
-                <img className="pass-cora-art" src="/images/cora-ticket-line-art.svg" alt="" width="128" height="112" draggable={false}/>
+                <img className="pass-cora-art" src={publicUrl("/images/cora-ticket-line-art.svg")} alt="" width="128" height="112" draggable={false}/>
               </div>
               <div className="pass-heading"><h3>Cora</h3><p>{c.tagline}</p></div>
               <div className="pass-main-bottom"><span>{c.issuedBy}</span></div>
