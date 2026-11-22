@@ -48,10 +48,11 @@
   "readme_adjustments": "Deployment-guide link, current folder path and updated page descriptions; website implementation unchanged.",
   "github_pages": {
     "repository": "stellaaahang/Aster_Cora",
-    "url": "https://stellaaahang.github.io/Aster_Cora/",
+    "url": "https://astercor.space/",
     "command": "npm run build:pages",
     "output": "dist-pages",
     "routing": "hash",
-    "publishing_source": "GitHub Actions"
+    "publishing_source": "GitHub Actions",
+    "custom_domain": "astercor.space"
   }
 }
