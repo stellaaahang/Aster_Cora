@@ -1,7 +1,7 @@
 {
   "name": "Aster / Cora",
   "packaged_at": "2026-11-22T14:08:32+08:00",
-  "source_commit": "6d7487b6c27d68549b424bf4189c7bbb2de52062",
+  "source_commit": "d9b714a20b0fa616081c698f67027e046958733a",
   "source_branch": "main",
   "build_command": "npm run build",
   "publish_directory": "dist",
@@ -47,8 +47,8 @@
   ],
   "readme_adjustments": "Deployment-guide link, current folder path and updated page descriptions; website implementation unchanged.",
   "github_pages": {
-    "repository": "stellaaahang/stellazzz",
-    "url": "https://stellaaahang.github.io/stellazzz/",
+    "repository": "stellaaahang/Aster_Cora",
+    "url": "https://stellaaahang.github.io/Aster_Cora/",
     "command": "npm run build:pages",
     "output": "dist-pages",
     "routing": "hash",

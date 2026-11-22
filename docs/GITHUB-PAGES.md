@@ -1,6 +1,6 @@
 # GitHub Pages 发布
 
-仓库：stellaaahang/stellazzz。正式地址：https://stellaaahang.github.io/stellazzz/ 。带开屏的预览：https://stellaaahang.github.io/stellazzz/?intro=preview 。
+仓库：stellaaahang/Aster_Cora。正式地址：https://stellaaahang.github.io/Aster_Cora/ 。带开屏的预览：https://stellaaahang.github.io/Aster_Cora/?intro=preview 。
 
 ## 问题与修复
 
@@ -11,7 +11,7 @@
 ## 两种构建保持独立
 
 - npm run build：原有根路径部署，生成 dist，使用 BrowserRouter，适合 Vercel、Netlify 和有 SPA 回退的服务器。
-- npm run build:pages：生成 dist-pages，使用 HashRouter，默认资源前缀 /stellazzz/。Pages 无需服务器改写规则，各页面通过 #/product、#/applications、#/about 等访问和刷新。
+- npm run build:pages：生成 dist-pages，使用 HashRouter，默认资源前缀 /Aster_Cora/。Pages 无需服务器改写规则，各页面通过 #/product、#/applications、#/about 等访问和刷新。
 - Actions 通过 configure-pages 输出的 base_path 设置 PAGES_BASE_PATH，可适配仓库名称变化或自定义域名。
 - src/config/publicAssets.ts 统一处理 public 素材前缀。音频索引保持可供生成脚本校验的标准 /audio 路径，实际请求时加部署前缀。
 - /?intro=preview 与 /#/?intro=preview 都会展示原有开屏，完成后保留正常站内导航。

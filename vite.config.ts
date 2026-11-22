@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 export default defineConfig(({ mode }) => {
   const pages = mode === 'github-pages';
-  const pagesBase = process.env.PAGES_BASE_PATH ?? '/stellazzz/';
+  const pagesBase = process.env.PAGES_BASE_PATH ?? '/Aster_Cora/';
   return {
     plugins: [react(), tailwindcss()],
     base: pages ? pagesBase.replace(/\/+$/, '') + '/' : '/',
