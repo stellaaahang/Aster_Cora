@@ -1,0 +1,140 @@
+/* A landscape paper invitation in the Aster palette, before the product reveal. */
+.opening-pass {
+  position: fixed; inset: 0; margin: 0; padding: 0; border: 0; width: 100%; height: 100dvh;
+  max-width: none; max-height: none; color: #173b68; overflow-y: auto; overflow-x: clip;
+  overscroll-behavior: contain; background: #f5f8fd;
+  background-image: radial-gradient(ellipse at 50% 47%, #dce8fa8c 0%, #eff4fc50 41%, transparent 68%);
+  opacity: 1; transition: opacity 420ms cubic-bezier(.16,1,.3,1);
+}
+.opening-pass:focus { outline: none; }
+.opening-pass::backdrop { background: transparent; }
+.opening-pass[data-stage="leaving"] { opacity: 0; pointer-events: none; }
+.opening-pass[data-quick-exit] { transition-duration: 170ms; }
+.opening-canvas { min-height: 100dvh; display: flex; flex-direction: column; padding-bottom: 60px; }
+.opening-header { width: min(1280px, calc(100% - 112px)); margin: 0 auto; height: 92px; flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+.opening-brand { width: 118px; height: auto; }
+.opening-header-actions { display: flex; align-items: center; gap: 30px; }
+.opening-header .language-switch { background: #e6edf8; }
+.opening-header .language-switch button { min-width: 44px; min-height: 44px; }
+.opening-skip { display: flex; align-items: center; gap: 14px; padding: 10px 0 10px 15px; min-height: 44px; font-size: 12px; color: #49668e; }
+.opening-skip:hover { color: #1a58bd; }
+.opening-main { flex: 1; min-width: 0; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 25px 0 20px; }
+.opening-invitation { padding-inline: 24px; text-align: center; }
+.opening-invitation h2 { font-size: clamp(27px,3.3vw,43px); font-weight: 500; line-height: 1.3; letter-spacing: -.035em; color: #173b68; }
+.opening-invitation p { font-size: 14px; color: #526b8c; margin: 15px 0 0; }
+.opening-ticket-area { position: relative; width: min(720px, calc(100% - 90px)); margin: 55px 0 38px; isolation: isolate; }
+.opening-orbit { position: absolute; width: min(850px,85vw); height: min(360px,45vw); top: 50%; left: 50%; border: 1px solid #c7d8ed77; border-radius: 50%; transform: translate(-50%,-50%) rotate(-17deg); z-index: -1; pointer-events: none; }
+.tear-ticket { position: relative; width: 100%; margin-inline: auto; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+.ticket-definitions { position: absolute; overflow: hidden; pointer-events: none; }
+.ticket-scale { position: relative; transform-origin: 0 0; }
+.ticket-plane { position: relative; width: 100%; height: 100%; transform: perspective(1200px) rotate(-4deg) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)); transition: transform 260ms cubic-bezier(.16,1,.3,1); transform-style: preserve-3d; filter: drop-shadow(5px 24px 23px #34557d22); }
+.tear-ticket[data-phase="holding"] .ticket-plane,
+.tear-ticket[data-phase="detached"] .ticket-plane { transition-duration: 90ms; }
+.ticket-main { position: absolute; left: 0; top: 0; transition: transform 470ms cubic-bezier(.16,1,.3,1); }
+.ticket-main-counter { width: 100%; height: 100%; transform-origin: right center; }
+.ticket-main-paper { position: relative; width: 100%; height: 100%; overflow: hidden; background: linear-gradient(125deg, #ffffff 7%, #f4f8fd 55%, #e7f0fd); }
+.ticket-main-paper::after,
+.ticket-stub-paper::after { content: ''; position: absolute; inset: 0; z-index: 6; pointer-events: none; background: url('/images/pass-paper.svg') repeat; opacity: .72; }
+.ticket-stub-piece { position: absolute; z-index: 3; cursor: grab; touch-action: none; transform-origin: left bottom; -webkit-tap-highlight-color: transparent; }
+.ticket-stub-piece:focus-visible { outline: 2px solid #4d82d2; outline-offset: 7px; border-radius: 12px; }
+.tear-ticket[data-phase="holding"] .ticket-stub-piece,
+.tear-ticket[data-phase="detached"] .ticket-stub-piece { cursor: grabbing; }
+.ticket-stub-paper { position: relative; width: 100%; height: 100%; overflow: hidden; background: linear-gradient(125deg, #e2edfc, #d5e4f8); }
+.ticket-stub-piece[aria-hidden="true"] { visibility: hidden; pointer-events: none; }
+.ticket-fibers { position: absolute; inset: 0; overflow: visible; pointer-events: none; z-index: 2; }
+.ticket-fibers path { opacity: 0; }
+.tear-ticket[data-used][data-recenter][data-orientation="horizontal"] .ticket-main { transform: translateX(var(--recentering)); }
+.tear-ticket[data-used][data-recenter][data-orientation="vertical"] .ticket-main { transform: translateY(var(--recentering)); }
+.pass-main-content { width: 100%; height: 100%; position: relative; padding: 27px 31px; overflow: hidden; color: #173b68; }
+.pass-issuer { position: relative; z-index: 4; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.pass-issuer > img { width: 83px; height: auto; }
+.pass-artwork { position: absolute; width: 255px; aspect-ratio: 1; right: 10px; top: 54px; z-index: 2; transform: translate(var(--art-x, 0px),var(--art-y, 0px)); transition: transform 260ms cubic-bezier(.16,1,.3,1); pointer-events: none; }
+.pass-space-art { width: 100%; height: 100%; object-fit: contain; }
+.pass-cora-art { position: absolute; top: 10%; left: 6%; width: 22%; height: auto; }
+.pass-heading { position: absolute; z-index: 3; left: 31px; bottom: 67px; max-width: 185px; }
+.pass-heading h3 { font-size: 66px; line-height: 1.04; font-weight: 600; letter-spacing: -.04em; margin-bottom: 14px; color: #14345f; }
+.pass-heading p { white-space: pre-line; max-width: 210px; font-size: 11px; line-height: 1.7; color: #41648e; margin: 0; }
+.pass-main-bottom { position: absolute; z-index: 4; left: 31px; right: 30px; bottom: 24px; display: flex; justify-content: space-between; gap: 20px; color: #5a769b; font-size: 12px; }
+.pass-stub-content { height: 100%; width: 100%; padding: 27px 25px 24px 27px; display: flex; flex-direction: column; justify-content: space-between; position: relative; color: #214a7d; }
+.pass-stub-top { display: flex; justify-content: space-between; align-items: center; gap: 15px; }
+.pass-stub-top > span { font-size: 14px; line-height: 1.45; max-width: 105px; text-align: right; }
+.pass-stub-top > svg { color: #4b77ae; width: 24px; height: 24px; flex-shrink: 0; }
+.pass-stub-message { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.pass-stub-message strong { font-size: 22px; font-weight: 500; line-height: 1.3; letter-spacing: -.025em; white-space: pre-line; }
+.pass-stub-message > span { font-size: 10px; color: #4d6d96; }
+.pass-pull-arrow { color: #3c6aaa; margin-top: 1px; }
+.pass-stub-bottom { display: flex; flex-direction: column; gap: 10px; font-size: 8px; letter-spacing: .09em; font-variant-numeric: tabular-nums; }
+.pass-barcode { width: 129px; height: 24px; display: block; opacity: .57; background: repeating-linear-gradient(90deg, #2d5689 0 1px, transparent 1px 3px, #2d5689 3px 5px, transparent 5px 7px, #2d5689 7px 7.8px, transparent 7.8px 11px, #2d5689 11px 13px, transparent 13px 15px, #2d5689 15px 16px, transparent 16px 20px); }
+.opening-controls { text-align: center; padding-inline: 22px; position: relative; z-index: 8; }
+.opening-gesture-hint { font-size: 13px; line-height: 1.65; color: #365d8b; margin: 0; display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 25px; }
+.opening-gesture-hint > svg { color: #6085b6; }
+.opening-enter { display: inline-flex; align-items: center; justify-content: center; gap: 17px; font-size: 12px; color: #2b5a9b; min-height: 44px; padding: 9px 17px; margin-top: 14px; border-radius: 24px; }
+.opening-enter:hover { background: #e1eaf7; }
+.opening-pass[data-stage="complete"] .opening-gesture-hint { color: #1e577f; }
+.opening-pass[data-stage="complete"] .opening-gesture-hint > svg { color: #3e7c86; }
+@media (min-width: 1600px) and (min-height: 950px) {
+  .opening-invitation h2 { font-size: 47px; }
+  .opening-ticket-area { margin-top: 65px; margin-bottom: 55px; }
+}
+@media (max-width: 900px) {
+  .opening-header { width: calc(100% - 70px); }
+  .opening-header-actions { gap: 19px; }
+  .opening-ticket-area { margin-top: 46px; margin-bottom: 33px; }
+  .opening-invitation p { font-size: 13px; }
+}
+@media (max-width: 600px) {
+  .opening-header { width: calc(100% - 40px); height: 76px; gap: 15px; }
+  .opening-brand { width: 101px; }
+  .opening-header-actions { gap: 11px; }
+  .opening-header .language-switch { padding: 2px; }
+  .opening-header .language-switch button { min-width: 44px; min-height: 44px; padding-inline: 7px; font-size: 10px; }
+  .opening-skip { font-size: 10px; gap: 7px; padding-left: 4px; }
+  .opening-skip > svg { width: 15px; }
+  .opening-main { padding: 24px 0 36px; }
+  .opening-invitation h2 { font-size: 28px; line-height: 1.3; }
+  .opening-invitation p { max-width: 330px; font-size: 12px; line-height: 1.8; margin-top: 12px; }
+  .opening-ticket-area { width: min(480px,calc(100% - 48px)); margin: 42px 0 36px; }
+  .opening-orbit { width: 85vw; height: 40vw; transform: translate(-50%,-50%) rotate(-26deg); }
+  .pass-main-content { padding: 23px 24px; }
+  .pass-issuer > img { width: 80px; }
+  .pass-artwork { width: 185px; top: 59px; }
+  .pass-heading { left: 24px; bottom: 59px; max-width: 130px; }
+  .pass-heading h3 { font-size: 55px; margin-bottom: 13px; }
+  .pass-heading p { font-size: 13px; max-width: 145px; line-height: 1.6; }
+  .pass-main-bottom { left: 24px; right: 24px; bottom: 22px; font-size: 16px; }
+  .pass-stub-content { padding: 23px 22px; }
+  .pass-stub-top { gap: 10px; }
+  .pass-stub-top > span { font-size: 18px; line-height: 1.4; max-width: 110px; }
+  .pass-stub-message { gap: 8px; }
+  .pass-stub-message strong { font-size: 23px; line-height: 1.25; }
+  .pass-stub-message > span { font-size: 11px; }
+  .pass-pull-arrow { width: 23px; height: 23px; }
+  .pass-stub-bottom { gap: 7px; font-size: 10px; }
+  .pass-barcode { width: 135px; height: 18px; }
+  .opening-gesture-hint { font-size: 12px; gap: 9px; max-width: 320px; }
+  .opening-enter { font-size: 11px; margin-top: 12px; }
+  .opening-canvas { padding-bottom: 40px; }
+}
+@media (max-width: 370px) {
+  .opening-header { width: calc(100% - 30px); gap: 8px; }
+  .opening-brand { width: 85px; }
+  .opening-header-actions { gap: 5px; }
+  .opening-skip { font-size: 9px; gap: 4px; }
+  .opening-header .language-switch button { min-width: 44px; min-height: 44px; padding-inline: 6px; }
+  .opening-invitation h2 { font-size: 25px; }
+  .opening-invitation p { font-size: 11px; max-width: 280px; }
+  .opening-ticket-area { width: calc(100% - 40px); margin-top: 36px; }
+}
+@media (max-height: 780px) and (min-width: 601px) {
+  .opening-header { height: 74px; }
+  .opening-main { padding-top: 10px; }
+  .opening-invitation h2 { font-size: 33px; }
+  .opening-ticket-area { max-width: 600px; margin-block: 30px 27px; }
+  .opening-canvas { padding-bottom: 45px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .opening-pass { transition: opacity 100ms linear !important; }
+  .ticket-plane { transform: none !important; transition: none; }
+  .tear-ticket[data-used][data-recenter] .ticket-main { transform: none !important; transition: none; }
+  .pass-artwork { transform: none; transition: none; }
+}

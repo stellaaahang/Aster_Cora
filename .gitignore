@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.DS_Store
+Icon?
+*.tsbuildinfo
+*.log
+.env
+.env.*
+!.env.example
+!.env.*.example
+.playwright/
+test-results/

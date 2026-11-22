@@ -1,0 +1,19 @@
+.aster-detail { padding: 135px 0 95px; background: radial-gradient(ellipse at 75% 5%, #f8fbff, var(--space-white) 62%); }
+.aster-back { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--primary-action); font-weight: 650; }
+.aster-back svg { transform: rotate(180deg); }
+.aster-back:hover { text-decoration: underline; }
+.aster-detail-heading { padding: 14px 0 30px; }
+.aster-detail-heading h1 { font-size: clamp(42px,5vw,64px); }
+.aster-detail-heading p { max-width: 60ch; margin: 13px 0 0; }
+.aster-value-list { display: grid; gap: clamp(38px, 7vw, 92px); }
+.aster-value-story { display: grid; grid-template-columns: minmax(0,1.12fr) minmax(0,1fr); align-items: center; gap: clamp(24px,6vw,84px); }
+.aster-value-story:nth-child(even) figure { order: 1; }
+.aster-value-story figure { position: relative; isolation: isolate; overflow: hidden; border-radius: 16px; }
+.aster-value-story figure img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.aster-value-story .aster-value-pair img:last-child { position: absolute; right: 5%; bottom: 8%; width: 44%; border-radius: 9px; }
+.aster-value-story p { margin: 13px 0 0; font-size: 16px; }
+@media (max-width: 690px) {
+  .aster-detail { padding: 104px 0 66px; }
+  .aster-value-story { grid-template-columns: minmax(0,1fr); }
+  .aster-value-story:nth-child(even) figure { order: 0; }
+}

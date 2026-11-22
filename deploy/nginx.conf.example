@@ -1,0 +1,18 @@
+# Replace the domain and document root for your server.
+# Upload the CONTENTS of dist/ into the document root.
+server {
+    listen 80;
+    server_name your-domain.example;
+    root /var/www/aster-cora;
+    index index.html;
+
+    location /assets/ {
+        try_files $uri =404;
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+    location /images/ { try_files $uri =404; }
+    location /models/ { try_files $uri =404; }
+    location /audio/ { try_files $uri =404; }
+    location / { try_files $uri $uri/ /index.html; }
+}

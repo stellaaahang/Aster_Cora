@@ -1,0 +1,15 @@
+{
+  "passed": [
+    "Opening replay + English/Chinese Home audio playback",
+    "Direct route /product",
+    "Direct route /applications",
+    "Direct route /about",
+    "Direct route /about/value",
+    "Direct route /contact",
+    "Technology alias",
+    "20 production MP3 files",
+    "Mobile intro/Home/contact layout"
+  ],
+  "errors": [],
+  "failed": []
+}

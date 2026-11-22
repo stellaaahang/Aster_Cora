@@ -1,0 +1,130 @@
+.aster-contact { padding: 132px 0 96px; }
+.aster-contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 88px);
+  align-items: stretch;
+  margin-top: 24px;
+}
+.aster-contact-visual {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 640px;
+  border-radius: 16px;
+  background: var(--glacier-blue);
+}
+.aster-contact-artwork {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 43% center;
+  filter: grayscale(1) contrast(.85);
+  mix-blend-mode: luminosity;
+  opacity: .65;
+}
+.aster-contact-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(165deg, #b9daf866, #c3dff74d 46%, #dcecfbf5 100%);
+}
+.aster-contact-visual figcaption {
+  position: absolute;
+  z-index: 2;
+  left: clamp(24px, 3vw, 44px);
+  right: clamp(24px, 3vw, 44px);
+  bottom: clamp(28px, 3vw, 44px);
+}
+.aster-contact-visual figcaption p {
+  max-width: 24ch;
+  margin: 0;
+  color: var(--space-navy);
+  font-family: 'Manrope Variable', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: clamp(26px, 2.4vw, 36px);
+  line-height: 1.3;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+  white-space: pre-line;
+}
+.aster-contact-panel { min-width: 0; align-self: center; padding-block: 12px; }
+.aster-contact-panel .aster-detail-heading { padding: 0 0 28px; }
+.aster-contact-panel h1 { font-size: clamp(38px, 3.6vw, 52px); }
+.aster-contact-panel .aster-detail-heading p { margin-top: 12px; }
+.aster-contact-email {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  color: var(--primary-action);
+  text-underline-offset: 4px;
+}
+.aster-contact-email:hover { text-decoration: underline; }
+.aster-contact-form {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  align-items: start;
+  gap: 20px;
+}
+.aster-contact-field { min-width: 0; display: grid; align-content: start; gap: 8px; }
+.aster-contact-field label { font-weight: 550; font-size: 14px; line-height: 1.5; }
+.aster-contact-field label small { font-weight: 400; color: var(--secondary-text); }
+.aster-contact-field :is(input, select, textarea) {
+  width: 100%;
+  font: inherit;
+  font-size: 15px;
+  min-height: 50px;
+  padding: 12px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 9px;
+  background: #f8fbff;
+  color: var(--primary-text);
+  caret-color: var(--primary-action);
+  transition: border-color 180ms, background 180ms;
+}
+.aster-contact-field :is(input, select, textarea):hover { border-color: var(--atmosphere-blue); }
+.aster-contact-field :is(input, select, textarea):focus-visible {
+  outline: 2px solid var(--primary-action);
+  outline-offset: 3px;
+  border-color: var(--primary-action);
+  background: #fff;
+}
+.aster-contact-field :is(input, textarea)::placeholder { color: var(--secondary-text); opacity: .8; }
+.aster-contact-field textarea { resize: vertical; min-height: 156px; }
+.aster-contact-field [aria-invalid="true"] { border-color: #a63c46; }
+.aster-contact-field :disabled { opacity: .65; cursor: wait; }
+.aster-contact-error { color: #8b2731; font-size: 12px; }
+.contact-message, .aster-contact-notice, .aster-contact-form > .button { grid-column: 1 / -1; }
+.aster-contact-notice { margin: 0; font-size: 14px; overflow-wrap: anywhere; }
+.aster-contact-form > .button { width: 100%; border-radius: 10px; justify-content: space-between; min-height: 50px; }
+.aster-contact-form > .button:hover { transform: none; }
+.aster-contact-form > .button:disabled { opacity: .65; transform: none; }
+@media (max-width: 1100px) {
+  .aster-contact-grid { gap: 40px; }
+  .aster-contact-form { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 900px) {
+  .aster-contact-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .aster-contact-visual { min-height: 0; aspect-ratio: 16 / 8; }
+  .aster-contact-artwork { object-position: 43% 55%; }
+  .aster-contact-visual figcaption p { max-width: 24ch; font-size: 30px; }
+  .aster-contact-panel { padding-block: 0; }
+  .aster-contact-form { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+@media (max-width: 600px) {
+  .aster-contact { padding: 108px 0 64px; }
+  .aster-contact-grid { margin-top: 16px; gap: 32px; }
+  .aster-contact-visual { aspect-ratio: 4 / 3; }
+  .aster-contact-visual figcaption { left: 24px; right: 24px; bottom: 24px; }
+  .aster-contact-visual figcaption p { font-size: 28px; max-width: 17ch; }
+  .aster-contact-form { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .aster-contact-field :is(input, select, textarea) { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aster-contact-field :is(input, select, textarea) { transition: none; }
+}

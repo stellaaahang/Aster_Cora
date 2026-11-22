@@ -1,0 +1,19 @@
+.product-core-design {
+  background: linear-gradient(var(--space-white), #f5f9fd 36%, var(--space-white));
+}
+.core-design-heading { margin-bottom: 36px; }
+.product-core-design .core-design-heading p { max-width: 70ch; }
+.product-core-design .product-component-list button { min-height: 160px; padding: 26px 22px; gap: 20px; }
+.product-core-design .product-component-list button > span { font-size: 16px; line-height: 1.5; padding-right: 0; }
+.product-core-design .product-component-list button > svg:last-child { top: 30px; right: 18px; }
+.product-core-design .product-component-list button:focus-visible { z-index: 1; outline: 2px solid var(--primary-action); outline-offset: -3px; }
+@media (max-width: 1000px) {
+  .product-core-design .product-component-list button { padding-inline: 16px; }
+  .product-core-design .product-component-list button > span { font-size: 14px; }
+}
+@media (max-width: 600px) {
+  .core-design-heading { margin-bottom: 24px; }
+  .product-core-design .product-component-list button { min-height: 80px; padding: 18px 12px; gap: 16px; }
+  .product-core-design .product-component-list button > span { font-size: 15px; }
+  .product-core-design .product-component-list button > svg:last-child { position: static; }
+}

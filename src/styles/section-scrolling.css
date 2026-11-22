@@ -1,0 +1,226 @@
+html {
+  --header-scroll-offset: 110px;
+  scroll-padding-top: var(--header-scroll-offset);
+}
+
+#main section[tabindex="-1"]:focus,
+#explore-technology[tabindex="-1"]:focus {
+  outline: none;
+}
+
+.home-section-nav {
+  display: none;
+}
+
+.meet-cora-section {
+  background: linear-gradient(var(--space-white), var(--surface-interaction) 60%, var(--space-white));
+}
+
+.tech-lab-section,
+.tech-scenarios-section,
+.about-crew,
+.about-purpose,
+.about-values {
+  background: linear-gradient(var(--space-white), #f4f8fd 48%, var(--space-white));
+}
+
+.tech-next::after {
+  background:
+    linear-gradient(var(--space-white), transparent 38%, transparent 66%, var(--space-white)),
+    linear-gradient(100deg, var(--space-white) 26%, #e8f0fbc7 57%, #e8f0fb39);
+}
+
+.product-finale {
+  background: linear-gradient(var(--mist-blue), var(--space-white) 42%);
+}
+
+.product-finale .product-technology-cta {
+  background: linear-gradient(var(--space-white), var(--mist-blue) 58%, var(--space-white));
+}
+
+@media (max-width: 700px) {
+  html { --header-scroll-offset: 90px; }
+}
+
+@media (min-width: 1024px) and (min-height: 650px) and (pointer: fine) {
+  .site-header-orbital::before {
+    content: '';
+    position: absolute;
+    inset: -16px 0 auto;
+    z-index: -1;
+    height: var(--header-scroll-offset);
+    background: linear-gradient(var(--space-white) 22%, transparent);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 250ms;
+  }
+
+  .site-header-orbital.is-light::before {
+    opacity: 1;
+  }
+
+  #main > [data-section-snap] {
+    min-height: calc(100svh - var(--header-scroll-offset));
+  }
+
+  #main > :is(.home-orbit-hero, .product-overview, .tech-hero, .about-hero-section) {
+    min-height: 100svh;
+  }
+
+  #main > :is(.home-orbit-hero, .why-cora-section, .journey-section, .journey-detail-section, .meet-cora-section,
+    .product-overview, .tech-hero, .tech-next, .about-hero-section, .about-purpose, .about-values, .about-join) {
+    display: grid;
+    align-items: center;
+  }
+
+  #main > .home-orbit-hero {
+    height: auto;
+    max-height: none;
+  }
+
+  .home-orbit-hero .home-orbit-grid.container {
+    height: auto;
+    padding-bottom: clamp(90px, 13svh, 114px);
+  }
+
+  .home-orbit-hero .home-cora-stage {
+    height: clamp(400px, calc(100svh - 240px), 650px);
+  }
+
+  #main > :is(.why-cora-section, .journey-section, .journey-detail-section, .meet-cora-section, .product-modules,
+    .tech-section, .about-section) {
+    padding-block: clamp(40px, 7svh, 80px);
+  }
+
+  .journey-section .section-heading {
+    margin-bottom: clamp(22px, 4svh, 42px);
+  }
+
+  .product-overview {
+    padding-top: 112px;
+    padding-bottom: 32px;
+  }
+
+  .product-overview .cora-viewer-visibility {
+    --viewer-height: clamp(465px, calc(100svh - 192px), clamp(700px, 36vw, 900px));
+  }
+
+  .product-finale {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-finale .product-value {
+    margin-block: auto;
+    padding-block: clamp(38px, 6svh, 72px);
+  }
+
+  .product-finale .product-value .section-heading {
+    margin-bottom: clamp(26px, 4svh, 45px);
+  }
+
+  .product-finale .product-technology-cta {
+    padding-block: clamp(34px, 7svh, 75px);
+  }
+
+  .about-crew .crew-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    max-width: none;
+    gap: clamp(12px, 1.5vw, 22px);
+  }
+
+  .about-crew .crew-card-turn {
+    min-height: 326px;
+  }
+
+  .about-crew .crew-card-back .crew-portrait {
+    width: min(80%, 154px);
+  }
+
+  .home-section-nav {
+    position: fixed;
+    z-index: 10;
+    top: 50%;
+    right: clamp(3px, 1.3vw, 28px);
+    transform: translateY(-50%);
+    display: grid;
+    color: var(--primary-action);
+  }
+
+  .home-section-nav[data-hero="true"] {
+    color: var(--space-white);
+  }
+
+  .home-section-nav[data-outside="true"]:not(:focus-within) {
+    visibility: hidden;
+  }
+
+  .home-section-nav a {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    outline-color: currentColor;
+    outline-offset: -4px;
+  }
+
+  .home-section-nav a::before {
+    content: '';
+    width: 9px;
+    height: 9px;
+    border: 1.5px solid currentColor;
+    border-radius: 50%;
+    background: transparent;
+    transition: transform 200ms var(--ease), background-color 200ms;
+  }
+
+  .home-section-nav a[aria-current]::before {
+    transform: scale(1.35);
+    background: currentColor;
+  }
+
+  .home-section-nav a > span {
+    position: absolute;
+    right: 100%;
+    width: max-content;
+    padding: 7px 11px;
+    border-radius: 8px;
+    background: var(--space-navy);
+    color: var(--space-white);
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms;
+  }
+
+  .home-section-nav a:is(:hover, :focus-visible) > span {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 1024px) and (min-height: 650px) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  html:has(#main > [data-section-snap]):not(:has(dialog[open], .cora-model-viewer.is-fullscreen)) {
+    scroll-snap-type: y proximity;
+  }
+
+  #main > [data-section-snap] {
+    scroll-snap-align: start;
+  }
+
+  .site-footer {
+    scroll-snap-align: end;
+  }
+
+  [data-section-intro][data-visible="true"] {
+    animation: section-intro 420ms var(--ease) both;
+  }
+
+  @keyframes section-intro {
+    from { opacity: .4; transform: translateY(14px); }
+    to { opacity: 1; transform: none; }
+  }
+}

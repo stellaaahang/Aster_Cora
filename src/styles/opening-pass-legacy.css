@@ -1,0 +1,16 @@
+/* Keep the db3345e opening independent of the newer website theme. */
+.opening-pass {
+  font-family: 'Manrope Variable', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  --white: #fff;
+  --orbital: #f7f9fc;
+  --ice: #e8f1fa;
+  --blue: #3b82d6;
+  --deep: #173b68;
+  --navy: #101c30;
+  --muted: #52647c;
+  --line: #d7e2ef;
+  --ease: cubic-bezier(.16,1,.3,1);
+  --radius: 16px;
+  scrollbar-color: #b3c9e1 #f7f9fc;
+}
+.opening-pass :is(h1, h2, h3) { font-family: inherit; }

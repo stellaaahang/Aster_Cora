@@ -1,0 +1,47 @@
+{
+  "name": "Aster / Cora",
+  "packaged_at": "2026-11-22T00:40:55+08:00",
+  "source_commit": "e9ef68b55aab7091dff3c11314bd667a32beebc4",
+  "source_branch": "main",
+  "build_command": "npm run build",
+  "publish_directory": "dist",
+  "node_version": "24+",
+  "preview_query": "?intro=preview",
+  "voice_id": "cgSgspJ2msm6clMCkdW9",
+  "voice_clips": 20,
+  "source_files": 289,
+  "excluded": [
+    ".git",
+    "node_modules",
+    ".env.local",
+    "test-results",
+    "local caches"
+  ],
+  "checks": {
+    "build": "passed",
+    "unit_tests": {
+      "passed": 10,
+      "failed": 0
+    },
+    "voice_files": "20/20 passed",
+    "packaged_preview": {
+      "result": "passed",
+      "groups": 9,
+      "runtime_errors": 0,
+      "failed_resources": 0
+    },
+    "copied_source_unit_tests": "10/10 passed",
+    "production_checksums": "159/159 passed"
+  },
+  "deployment_additions": [
+    "部署说明.md",
+    ".nvmrc",
+    "vercel.json",
+    "netlify.toml",
+    "deploy/nginx.conf.example",
+    "RELEASE.json",
+    "SHA256SUMS.txt",
+    "deploy/验证结果.json"
+  ],
+  "readme_adjustments": "Deployment-guide link, current folder path and updated page descriptions; website implementation unchanged."
+}

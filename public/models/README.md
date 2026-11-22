@@ -1,0 +1,1 @@
+`cora-matte-white.glb` is the unmodified official `天巡者_实拍版_哑光白.glb` supplied by Aster. The Product page lazily loads it and retains its geometry, source transforms, textures and materials. See `docs/3D-INTEGRATION.md` for model calibration and replacement steps.

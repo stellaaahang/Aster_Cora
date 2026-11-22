@@ -1,0 +1,9 @@
+/* Keep Tailwind's component utilities without resetting the existing site. */
+@layer theme, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities) source(none) important;
+@source '../components/ui';
+@source '../components/direction-aware-hover-demo.tsx';
+@source '../components/about/OurValues.tsx';
+@source '../components/technology/MissionScenarioCarousel.tsx';
+@source not inline('container');

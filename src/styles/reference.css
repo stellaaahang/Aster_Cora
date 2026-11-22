@@ -1,0 +1,335 @@
+/* The user-supplied four-panel reference governs the opening composition of each route. */
+:root { --reference-blue: var(--primary-action); --reference-ink: var(--primary-text); --reference-text: var(--secondary-text); }
+.site-header { height: 80px; background: #edf3fd; border-bottom: 0; }
+.brand img { width: 118px; }
+.main-nav { gap: 46px; margin-left: 30px; }
+.main-nav > a { font-size: 13px; color: #173260; }
+.main-nav > a:after { bottom: 20px; }
+.language-switch { background: #e3ecfa; font-size: 11px; }
+.language-switch button { min-height: 34px; min-width: 36px; padding: 7px 9px; }
+.button { min-height: 45px; padding: 11px 25px; font-size: 13px; }
+.primary { background: var(--primary-action); }
+.primary:hover { background: color-mix(in srgb, var(--primary-action) 70%, var(--action-hover)); }
+.secondary { color: var(--primary-text); box-shadow: inset 0 0 0 1px var(--border-color); }
+.reference-surface { position: relative; isolation: isolate; overflow: hidden; color: var(--reference-ink); padding-top: 104px; background: var(--space-white); }
+.reference-label { display: block; color: var(--secondary-text); font-size: 11px; letter-spacing: .38em; text-transform: uppercase; margin-bottom: 22px; font-weight: 600; }
+.reference-horizon { position: absolute; z-index: -1; width: 180%; height: 600px; bottom: -520px; left: -35%; border-radius: 50%; border-top: 1px solid #ffffffed; background: linear-gradient(#ffffff59, #eaf2ff00 45%); transform: rotate(-9deg); box-shadow: 0 -8px 28px #ffffff4d; pointer-events: none; }
+/* Home: copy, product, four values — one continuous blue-white canvas. */
+.reference-home { height: calc(100svh - 80px); min-height: 640px; max-height: 920px; display: flex; flex-direction: column; padding-top: 15px; }
+.reference-home-grid { display: grid; grid-template-columns: 43% 57%; align-items: center; flex: 1; min-height: 0; padding-top: 25px; padding-bottom: 20px; }
+.reference-home-copy { position: relative; z-index: 2; padding-bottom: 20px; }
+.reference-home-copy h1 { font-size: 80px; font-weight: 650; line-height: 1.06; letter-spacing: -.035em; }
+.reference-home-copy h1 > span { display: block; font-size: 30px; font-weight: 500; line-height: 1.42; margin-top: 16px; letter-spacing: -.025em; white-space: pre-line; }
+.reference-home-copy > p { font-size: 14px; line-height: 1.85; max-width: 450px; margin-top: 24px; margin-bottom: 30px; color: var(--reference-text); }
+.reference-home-copy .button-row { gap: 20px; }
+.reference-home-visual { position: relative; width: 100%; height: 100%; max-height: 610px; display: flex; align-items: center; justify-content: center; }
+.reference-home-visual > img { width: 89%; max-height: 580px; object-fit: contain; filter: drop-shadow(8px 23px 21px #5377a62b); position: relative; z-index: 1; }
+.reference-home-orbit { position: absolute; width: 105%; height: 32%; border: 1px solid #fffffff5; border-radius: 50%; transform: rotate(-25deg); top: 40%; left: -2%; }
+.reference-home-values { display: grid; grid-template-columns: repeat(4, 1fr); padding: 28px 0 18px; }
+.reference-home-values > a { display: flex; align-items: center; justify-content: center; gap: 18px; font-size: 12px; color: #244776; min-height: 44px; padding: 0 18px; position: relative; }
+.reference-home-values > a:not(:last-child):after { content: ''; position: absolute; width: 1px; height: 30px; background: #bfcfe8; right: 0; top: 7px; }
+.reference-home-values > a:hover { color: var(--reference-blue); }
+.reference-scroll { display: flex; align-items: center; justify-content: center; height: 45px; width: 50px; margin: 0 auto 6px; color: #30568e; }
+/* Product: sidebar and image explorer are presented together on the first screen. */
+.reference-product-grid { display: grid; grid-template-columns: 245px minmax(0, 1fr); gap: 26px; min-height: 680px; height: calc(100svh - 104px); max-height: 996px; align-items: center; padding-top: 22px; padding-bottom: 28px; }
+.reference-product-sidebar { align-self: center; padding-bottom: 84px; position: relative; z-index: 3; }
+.reference-product-sidebar h1 { font-size: 55px; line-height: 1.1; font-weight: 650; }
+.reference-product-sidebar > p { font-size: 14px; line-height: 1.75; color: var(--reference-text); margin: 14px 0 35px; max-width: 240px; }
+.reference-product-sidebar nav { display: flex; flex-direction: column; gap: 3px; max-width: 235px; }
+.reference-product-sidebar nav a { display: flex; align-items: center; gap: 17px; font-size: 13px; min-height: 55px; padding: 12px 15px; border-bottom: 1px solid var(--border-color); border-radius: 0; color: var(--secondary-text); }
+.reference-product-sidebar nav a > svg:last-child:not(:first-child) { margin-left: auto; }
+.reference-product-sidebar nav a.is-active { border-radius: 30px; border-color: transparent; background: var(--surface-selection); color: var(--primary-action); }
+.reference-product-sidebar nav a:hover { color: var(--primary-action); }
+.reference-product .integrated-viewer { min-width: 0; padding: 0; background: none; overflow: visible; border-radius: 0; }
+.integrated-viewer .viewer-topline { display: none; }
+.reference-product .viewer-stage { height: 570px; overflow: visible; }
+.reference-product .viewer-product-wrap { width: 520px; max-width: 72%; }
+.reference-product .viewer-product { max-height: 510px; filter: drop-shadow(5px 24px 20px #3b659a2b); }
+.reference-product .viewer-product-wrap:has(+ .hotspot-card) { margin-right: 185px; }
+.reference-product .viewer-ring { height: 75px; width: 650px; bottom: 66px; border-color: #ffffffef; }
+.reference-product .orthographic-view .viewer-product-wrap { width: 420px; max-width: 65%; }
+.reference-product .orthographic-view .viewer-product { border-radius: 0; filter: drop-shadow(5px 24px 20px #3b659a2b); }
+.reference-product .hotspot-card { top: 108px; right: -2px; width: 235px; padding: 20px; background: var(--card-hover-background); backdrop-filter: blur(12px); box-shadow: none; border: 1px solid #ffffff; }
+.hotspot-detail-image { width: 100%; height: 105px; object-fit: cover; object-position: center; border-radius: 7px; margin-bottom: 15px; }
+.reference-product .hotspot-card-header { margin-bottom: 10px; }
+.reference-product .hotspot-card-header > svg { width: 22px; height: 22px; }
+.reference-product .hotspot-card h3 { font-size: 16px; margin-bottom: 15px; color: #163569; }
+.reference-product .hotspot-card p { font-size: 12px; line-height: 1.85; margin-bottom: 0; color: var(--secondary-text); }
+.reference-product .hotspot-card small { display: none; }
+.reference-product .hotspot:before { inset: 6px; background: var(--primary-action); box-shadow: 0 2px 9px #2879c166; }
+.reference-product .hotspot:hover:before, .reference-product .hotspot.is-selected:before { background: var(--primary-text); }
+.reference-product .viewer-controls { bottom: 6px; background: var(--card-background); box-shadow: none; gap: 0; padding: 3px; }
+.reference-product .viewer-controls .icon-button { width: 44px; height: 44px; }
+.reference-product .viewer-controls output { width: 36px; }
+.reference-product .viewer-controls > span { margin-inline: 3px; }
+.reference-product .view-tabs { margin: 8px 0 7px; gap: 1px; }
+.reference-product .view-tabs button { font-size: 11px; min-height: 40px; padding-inline: 13px; }
+.reference-product .viewer-hint { color: var(--secondary-text); font-size: 11px; margin-bottom: 7px; }
+.reference-product .viewer-disclaimer { font-size: 10px; color: var(--secondary-text); max-width: 560px; }
+/* Applications: a quiet introduction beside a focused, interactive scene. */
+.reference-applications { height: 100svh; min-height: 690px; max-height: 1100px; display: flex; flex-direction: column; justify-content: center; padding-top: 124px; padding-bottom: 20px; }
+.reference-applications-grid { display: grid; grid-template-columns: 39% minmax(0, 1fr); gap: 55px; align-items: center; padding-top: 25px; padding-bottom: 40px; }
+.reference-applications-copy h1 { font-size: 37px; line-height: 1.35; letter-spacing: -.025em; max-width: 490px; }
+.reference-applications-copy > p { font-size: 14px; line-height: 1.85; color: var(--reference-text); margin: 24px 0 0; max-width: 390px; }
+.reference-mission { min-width: 0; position: relative; }
+.mission-counter { position: absolute; top: -26px; right: 9px; font-size: 11px; color: var(--primary-action); font-variant-numeric: tabular-nums; }
+.mission-counter span { color: var(--secondary-text); }
+.reference-mission-card { height: 355px; position: relative; border-radius: 16px; overflow: hidden; background: var(--glacier-blue); border: 1px solid #ffffff80; isolation: isolate; }
+.reference-cabin { position: absolute; inset: 0; height: 100%; width: 100%; object-fit: cover; opacity: .32; filter: saturate(.4) contrast(.6); z-index: -2; }
+.reference-cabin-wash { position: absolute; inset: 0; z-index: -1; background: linear-gradient(100deg, rgba(232,240,251,.95), rgba(221,232,247,.55) 45%, rgba(200,216,240,.2)); }
+.reference-mission-robot { position: absolute; right: -9px; top: 50%; width: 61%; height: 87%; object-fit: contain; filter: drop-shadow(4px 18px 17px #3754773d); transform: translateY(-50%); animation: mission-robot-enter .5s var(--ease); }
+.reference-mission-copy { position: absolute; width: 40%; left: 28px; bottom: 30px; z-index: 3; animation: content-enter .35s var(--ease); }
+.reference-mission-copy h2 { font-size: 20px; line-height: 1.35; letter-spacing: -.025em; margin-bottom: 10px; }
+.reference-mission-copy p { font-size: 11px; line-height: 1.75; color: var(--secondary-text); margin-bottom: 13px; }
+.mission-concept { font-size: 9px; color: var(--secondary-text); padding: 5px 9px; border-radius: 20px; background: #ffffff79; }
+.mission-data-cue { position: absolute; top: 45px; left: 25%; width: 125px; height: 125px; border: 1px solid #ffffffce; border-radius: 10px; transform: skewY(6deg); color: #fff; display: flex; padding: 18px; gap: 5px; flex-direction: column; }
+.mission-data-cue svg { height: 35px; width: 35px; margin-bottom: 8px; }
+.mission-data-cue > span { height: 1px; width: 70px; background: #ffffffb5; }
+.mission-data-cue > span:last-child { width: 45px; }
+.mission-selector { display: flex; align-items: center; gap: 22px; justify-content: center; }
+.reference-mission-tabs { flex: 1; justify-content: center; gap: 25px; max-width: 1050px; }
+.reference-mission-tabs button { flex: 1; max-width: 240px; min-height: 118px; flex-direction: column; gap: 15px; font-size: 13px; line-height: 1.45; padding: 17px 20px; color: #183867; background: var(--card-background); border: 1px solid var(--border-color); border-radius: 20px; }
+.reference-mission-tabs button > span { max-width: 155px; }
+.reference-mission-tabs button > svg { width: 31px; height: 31px; color: var(--primary-action); }
+.reference-mission-tabs button[aria-selected="true"] { border-color: var(--primary-action); background: var(--primary-action); color: var(--white); }
+.reference-mission-tabs button:hover { background: var(--card-hover-background); }
+.reference-mission-tabs button[aria-selected="true"] > svg { color: var(--white); }
+.reference-mission-tabs button[aria-selected="true"]:hover { background: var(--primary-action); }
+.reference-mission-bottom { padding-top: 25px; }
+.mission-pagination { display: flex; align-items: center; justify-content: center; gap: 12px; }
+.mission-pagination span { width: 6px; height: 6px; background: #b9cbe7; border-radius: 50%; }
+.mission-pagination .is-current { background: var(--primary-action); }
+.reference-mission-sequence { list-style: none; padding: 0; margin: 20px 0 0; display: flex; justify-content: center; gap: 22px; color: var(--secondary-text); font-size: 10px; }
+.reference-mission-sequence li { display: flex; align-items: center; gap: 9px; }
+.reference-mission-sequence li > span { color: var(--primary-action); font-variant-numeric: tabular-nums; }
+.reference-mission-sequence li > svg { margin-left: 10px; }
+/* About: story on the left, the Earth horizon and three pillars on the right. */
+.reference-about { min-height: 790px; height: 100svh; max-height: 1100px; }
+.reference-about-grid { display: grid; grid-template-columns: 44% minmax(0, 1fr); gap: 40px; align-items: center; min-height: 690px; height: 100%; position: relative; z-index: 2; }
+.reference-about-copy { padding-bottom: 30px; }
+.reference-about-copy h1 { font-size: 42px; line-height: 1.35; letter-spacing: -.025em; max-width: 535px; }
+.reference-about-copy > p { max-width: 420px; font-size: 14px; line-height: 1.85; color: var(--secondary-text); margin: 28px 0 30px; }
+.reference-earth { position: absolute; width: 1450px; height: 1250px; left: 36%; top: 6%; border-radius: 50%; transform: rotate(-18deg); overflow: hidden; background: #b9d6f4; box-shadow: 0 -2px 0 #fff, 0 -10px 34px #b5d8fc88; z-index: -2; }
+.reference-earth img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .65; filter: saturate(.65) brightness(1.15); }
+.reference-about-wash { position: absolute; inset: 0; background: linear-gradient(100deg, #edf3ff 8%, #ebf2fef2 29%, #e6f0fbc7 48%, #dcebf77d 100%); z-index: -1; }
+.reference-about-orbit { position: absolute; width: 1350px; height: 390px; top: 50%; left: 28%; border-top: 1px solid #ffffffed; border-radius: 50%; transform: rotate(-14deg); z-index: 0; }
+.reference-about-pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-self: end; margin-bottom: 95px; }
+.reference-about-pillars > a { text-align: center; min-width: 0; padding: 0 23px; position: relative; }
+.reference-about-pillars > a:not(:last-child):after { content: ''; width: 1px; height: 95px; position: absolute; right: 0; bottom: 3px; background: var(--border-color); }
+.reference-about-pillars svg { color: var(--primary-action); margin-bottom: 20px; }
+.reference-about-pillars h2 { font-size: 18px; font-weight: 600; margin-bottom: 16px; }
+.reference-about-pillars p { font-size: 12px; color: var(--secondary-text); line-height: 1.75; margin: 0; }
+.reference-about-pillars a:hover h2 { color: var(--primary-action); }
+.reference-team-photo { padding-top: 100px; }
+.reference-team-photo img { width: 100%; max-height: 580px; object-fit: cover; object-position: center 47%; border-radius: 14px; }
+.reference-team-photo figcaption { font-size: 11px; text-align: right; color: var(--secondary-text); margin-top: 16px; }
+/* Existing page compositions retain separate image, wash and fade layers. */
+.scene-backdrop { position: absolute; inset: 0; z-index: -3; overflow: hidden; pointer-events: none; }
+.scene-backdrop > img { width: 100%; height: 100%; object-fit: cover; }
+.scene-soften, .scene-fade { position: absolute; inset: 0; }
+.scene-soften { background: rgba(232,240,251,.75); }
+.scene-fade { background: linear-gradient(180deg, transparent 40%, rgba(221,232,247,.55) 75%, var(--space-white) 100%); }
+.scene-backdrop-product > img { filter: blur(8px) saturate(.35); opacity: .22; }
+.scene-backdrop-product .scene-soften { background: linear-gradient(110deg, rgba(232,240,251,.91), rgba(221,232,247,.65)); }
+.scene-backdrop-work > img { filter: blur(5px) saturate(.4); opacity: .4; }
+.scene-backdrop-work .scene-soften { background: linear-gradient(100deg, rgba(232,240,251,.93), rgba(221,232,247,.62)); }
+.scene-backdrop-observatory > img { opacity: .65; object-position: 64% center; filter: saturate(.6); }
+.scene-backdrop-observatory .scene-soften { background: linear-gradient(100deg, rgba(232,240,251,.98) 5%, rgba(232,240,251,.87) 42%, rgba(221,232,247,.6)); }
+.reference-about-orbit { opacity: .45; }
+@keyframes mission-robot-enter { from { opacity: .55; transform: translate(8px, -50%); } to { opacity: 1; transform: translate(0, -50%); } }
+@media (min-width: 1650px) {
+  .reference-home-copy h1 { font-size: 88px; }
+  .reference-home-copy h1 > span { font-size: 33px; }
+  .reference-home-visual > img { max-height: 610px; }
+  .reference-product .viewer-stage { height: 620px; }
+  .reference-product .viewer-product-wrap { width: 570px; }
+  .reference-product .viewer-product { max-height: 550px; }
+}
+@media (max-width: 1150px) {
+  .reference-home-copy h1 { font-size: 69px; }
+  .reference-home-copy h1 > span { font-size: 26px; }
+  .reference-home-copy > p { font-size: 13px; max-width: 370px; }
+  .reference-home-copy .button-row { gap: 12px; }
+  .reference-home-copy .button { padding-inline: 20px; font-size: 12px; }
+  .reference-home-values > a { font-size: 10px; gap: 12px; padding-inline: 12px; }
+  .reference-home-values svg { width: 26px; }
+  .reference-product-grid { grid-template-columns: 210px minmax(0, 1fr); gap: 12px; }
+  .reference-product-sidebar h1 { font-size: 49px; }
+  .reference-product-sidebar > p { font-size: 12px; }
+  .reference-product-sidebar nav a { font-size: 12px; gap: 13px; }
+  .reference-product .viewer-product-wrap { width: 430px; max-width: 79%; }
+  .reference-product .viewer-product-wrap:has(+ .hotspot-card) { margin-right: 145px; }
+  .reference-product .hotspot-card { width: 200px; padding: 16px; }
+  .reference-product .hotspot-card h3 { font-size: 14px; }
+  .reference-product .hotspot-card p { font-size: 11px; }
+  .hotspot-detail-image { height: 90px; }
+  .reference-product .view-tabs button { padding-inline: 10px; font-size: 10px; }
+  .reference-applications-grid { gap: 30px; grid-template-columns: 39% minmax(0, 1fr); }
+  .reference-applications-copy h1 { font-size: 31px; }
+  .reference-applications-copy > p { font-size: 13px; }
+  .reference-mission-card { height: 320px; }
+  .reference-mission-copy { left: 23px; bottom: 25px; }
+  .reference-mission-copy h2 { font-size: 17px; }
+  .reference-mission-copy p { font-size: 10px; }
+  .reference-mission-tabs { gap: 18px; }
+  .reference-mission-tabs button { font-size: 12px; padding-inline: 14px; min-height: 110px; }
+  .reference-about-grid { grid-template-columns: 44% minmax(0, 1fr); gap: 25px; }
+  .reference-about-copy h1 { font-size: 36px; }
+  .reference-about-copy > p { font-size: 13px; }
+  .reference-about-pillars > a { padding: 0 15px; }
+  .reference-about-pillars p { font-size: 11px; }
+}
+@media (max-width: 900px) {
+  .main-nav { margin-left: 0; gap: 27px; }
+  .brand img { width: 108px; }
+  .reference-home-grid { grid-template-columns: 47% 53%; }
+  .reference-home-copy h1 > span { font-size: 23px; }
+  .reference-home-copy > p { font-size: 12px; }
+  .reference-home-copy .button { font-size: 11px; padding-inline: 15px; gap: 11px; }
+  .reference-home-values > a { font-size: 10px; gap: 9px; padding-inline: 6px; }
+  .reference-product-grid { grid-template-columns: 175px minmax(0, 1fr); gap: 10px; }
+  .reference-product-sidebar nav a { font-size: 11px; padding-inline: 12px; gap: 11px; }
+  .reference-product-sidebar nav a > svg { width: 18px; }
+  .reference-product .viewer-stage { height: 500px; }
+  .reference-product .viewer-product-wrap { max-width: 86%; }
+  .reference-product .viewer-product-wrap:has(+ .hotspot-card) { margin-right: 85px; }
+  .reference-product .hotspot-card { top: 240px; width: 177px; padding: 13px; }
+  .reference-product .hotspot-card-header { margin-bottom: 3px; }
+  .reference-product .hotspot-card h3 { font-size: 13px; margin-bottom: 10px; }
+  .reference-product .hotspot-card p { font-size: 10px; }
+  .reference-product .hotspot-detail-image { height: 70px; margin-bottom: 10px; }
+  .reference-product .viewer-ring { width: 90%; bottom: 70px; }
+  .reference-product .view-tabs { gap: 0; }
+  .reference-product .view-tabs button { font-size: 9px; padding-inline: 8px; }
+  .reference-product .viewer-disclaimer { font-size: 9px; }
+  .reference-applications-grid { grid-template-columns: 38% minmax(0, 1fr); gap: 20px; }
+  .reference-applications-copy h1 { font-size: 27px; }
+  .reference-applications-copy > p { font-size: 12px; }
+  .reference-mission-card { height: 305px; }
+  .reference-mission-copy { width: 43%; left: 18px; bottom: 20px; }
+  .reference-mission-copy h2 { font-size: 16px; }
+  .reference-mission-copy p { font-size: 9px; }
+  .mission-selector { gap: 8px; }
+  .reference-mission-tabs { gap: 11px; }
+  .reference-mission-tabs button { font-size: 11px; padding-inline: 10px; }
+  .reference-about-copy h1 { font-size: 30px; }
+  .reference-about-copy > p { font-size: 12px; }
+  .reference-about-grid { gap: 20px; }
+  .reference-about-pillars { margin-bottom: 100px; }
+  .reference-about-pillars > a { padding-inline: 10px; }
+  .reference-about-pillars h2 { font-size: 15px; }
+  .reference-about-pillars p { font-size: 10px; }
+  .reference-about-pillars svg { width: 31px; height: 31px; }
+  .reference-earth { left: 28%; top: 9%; }
+}
+@media (max-width: 700px) {
+  .site-header { height: 74px; }
+  .main-nav { top: 74px; background: #edf3fd; }
+  .main-nav > a { font-size: 15px; }
+  .main-nav > a:after { bottom: 6px; }
+  .menu-backdrop { inset: 74px 0 0; }
+  .brand img { width: 109px; }
+  .language-switch button { min-height: 44px; min-width: 42px; }
+  .reference-label { font-size: 9px; margin-bottom: 18px; }
+  .reference-home { height: auto; min-height: 0; max-height: none; padding-top: 38px; }
+  .reference-home-grid { display: flex; flex-direction: column; padding-block: 0; gap: 10px; align-items: stretch; }
+  .reference-home-copy { padding-bottom: 0; }
+  .reference-home-copy h1 { font-size: 65px; }
+  .reference-home-copy h1 > span { font-size: 25px; line-height: 1.42; margin-top: 14px; }
+  .reference-home-copy > p { font-size: 13px; margin-top: 19px; margin-bottom: 24px; max-width: 500px; }
+  .reference-home-copy .button { font-size: 11px; min-height: 44px; padding: 11px 20px; }
+  .reference-home-copy .button-row { gap: 12px; }
+  .reference-home-visual { height: 330px; width: 100%; margin-top: 10px; }
+  .reference-home-visual > img { width: 88%; height: 100%; max-height: 320px; }
+  .reference-home-orbit { width: 103%; left: -1%; height: 90px; top: 45%; }
+  .reference-home-values { grid-template-columns: 1fr 1fr; gap: 14px 20px; padding-top: 21px; padding-bottom: 10px; }
+  .reference-home-values > a { justify-content: flex-start; padding: 0 5px; font-size: 10px; gap: 11px; min-height: 44px; }
+  .reference-home-values > a:nth-child(2):after { display: none; }
+  .reference-home-values > a:not(:last-child):after { height: 22px; top: 11px; }
+  .reference-home-values svg { width: 23px; height: 23px; }
+  .reference-scroll { height: 42px; margin-bottom: 0; }
+  .reference-horizon { bottom: -500px; width: 220%; }
+  .reference-product-grid { display: block; min-height: 0; height: auto; max-height: none; padding-top: 40px; padding-bottom: 30px; }
+  .reference-product-sidebar { padding-bottom: 20px; }
+  .reference-product-sidebar h1 { font-size: 50px; }
+  .reference-product-sidebar > p { font-size: 13px; margin: 14px 0 22px; max-width: 430px; }
+  .reference-product-sidebar nav { max-width: none; flex-direction: row; overflow-x: auto; gap: 6px; scrollbar-width: none; padding: 4px 2px; }
+  .reference-product-sidebar nav a { flex-shrink: 0; gap: 7px; padding: 10px 13px; font-size: 10px; min-height: 43px; border: 1px solid #d0def3; border-radius: 24px; }
+  .reference-product-sidebar nav a > svg { width: 16px; height: 16px; }
+  .reference-product-sidebar nav a > svg:last-child:not(:first-child) { display: none; }
+  .reference-product .viewer-stage { height: auto; min-height: 345px; padding-top: 8px; padding-bottom: 59px; overflow: hidden; }
+  .reference-product .viewer-product-wrap, .reference-product .viewer-product-wrap:has(+ .hotspot-card) { width: 340px; max-width: 94%; margin: 0; }
+  .reference-product .viewer-product { max-height: 340px; }
+  .reference-product .viewer-ring { bottom: 61px; height: 45px; width: 95%; }
+  .reference-product .hotspot-card { position: relative; width: 100%; top: auto; right: auto; margin: 22px 0 9px; padding: 18px 20px; display: grid; grid-template-columns: 100px 1fr; column-gap: 17px; align-items: start; }
+  .reference-product .hotspot-card-header { grid-column: 2; grid-row: 1; justify-content: flex-end; margin: -4px -7px -14px 0; height: 24px; }
+  .reference-product .hotspot-card-header > svg { display: none; }
+  .reference-product .hotspot-card h3 { grid-column: 2; grid-row: 2; font-size: 15px; margin-bottom: 8px; padding-right: 12px; }
+  .reference-product .hotspot-card .hotspot-detail-image { grid-column: 1; grid-row: 1 / 4; height: 103px; margin: 0; }
+  .reference-product .hotspot-card p { grid-column: 2; grid-row: 3; font-size: 11px; line-height: 1.75; }
+  .reference-product .view-tabs { margin-top: 7px; }
+  .reference-product .view-tabs button { padding-inline: 10px; font-size: 10px; min-height: 44px; }
+  .reference-product .viewer-hint { font-size: 10px; margin: 8px 0; }
+  .reference-product .viewer-disclaimer { font-size: 9px; max-width: 400px; }
+  .reference-product .orthographic-view .viewer-product-wrap { width: 290px; max-width: 85%; padding-top: 20px; }
+  .reference-applications { min-height: 0; height: auto; max-height: none; padding-top: 114px; padding-bottom: 35px; }
+  .reference-applications-grid { display: block; padding-block: 0 25px; }
+  .reference-applications-copy h1 { font-size: 31px; line-height: 1.4; max-width: 500px; }
+  .reference-applications-copy > p { font-size: 13px; margin-top: 20px; max-width: 500px; }
+  .reference-mission { margin-top: 45px; }
+  .reference-mission-card { height: 310px; }
+  .reference-mission-copy { width: 40%; left: 19px; bottom: 23px; }
+  .reference-mission-copy h2 { font-size: 18px; }
+  .reference-mission-copy p { font-size: 10px; }
+  .reference-mission-robot { width: 57%; right: -12px; top: 44%; }
+  .mission-data-cue { left: 24%; width: 110px; height: 110px; top: 25px; }
+  .mission-selector { gap: 6px; align-items: center; }
+  .mission-selector > .icon-button { width: 44px; flex-shrink: 0; }
+  .reference-mission-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+  .reference-mission-tabs button { min-width: 0; max-width: none; min-height: 96px; padding: 12px 8px; gap: 10px; font-size: 10px; }
+  .reference-mission-tabs button > span { max-width: 130px; }
+  .reference-mission-tabs button > svg { width: 25px; height: 25px; }
+  .reference-mission-bottom { padding-top: 22px; }
+  .reference-mission-sequence { gap: 10px; align-items: stretch; font-size: 9px; margin-top: 19px; }
+  .reference-mission-sequence li { flex: 1; gap: 6px; line-height: 1.6; align-items: flex-start; }
+  .reference-mission-sequence li > svg { display: none; }
+  .reference-about { height: auto; min-height: 0; max-height: none; }
+  .reference-about-grid { grid-template-columns: 1fr; min-height: 0; height: auto; gap: 62px; padding-top: 40px; padding-bottom: 48px; }
+  .reference-about-copy { padding-bottom: 0; }
+  .reference-about-copy h1 { font-size: 32px; line-height: 1.4; max-width: 500px; }
+  .reference-about-copy > p { max-width: 470px; font-size: 13px; margin: 24px 0 26px; }
+  .reference-about-pillars { margin-bottom: 0; gap: 0; }
+  .reference-about-pillars > a { padding-inline: 12px; }
+  .reference-about-pillars > a:first-child { padding-left: 0; }
+  .reference-about-pillars > a:last-child { padding-right: 0; }
+  .reference-about-pillars > a:not(:last-child):after { height: 82px; bottom: 0; }
+  .reference-about-pillars h2 { font-size: 14px; margin-bottom: 13px; }
+  .reference-about-pillars p { font-size: 10px; }
+  .reference-about-pillars svg { width: 30px; height: 30px; margin-bottom: 15px; }
+  .reference-earth { width: 1000px; height: 950px; left: 12%; top: 39%; }
+  .reference-about-wash { background: linear-gradient(140deg, #edf3ff 10%, #ebf2fef5 35%, #e6f0fbb5 67%, #dcebf782); }
+  .reference-about-orbit { top: 65%; left: 1%; width: 800px; height: 180px; }
+  .reference-team-photo { padding-top: 65px; }
+  .reference-team-photo img { max-height: none; height: auto; border-radius: 10px; }
+  .reference-team-photo figcaption { font-size: 10px; }
+}
+@media (max-width: 380px) {
+  .reference-home-copy h1 { font-size: 60px; }
+  .reference-home-copy h1 > span { font-size: 23px; }
+  .reference-home-copy .button { font-size: 10px; padding-inline: 17px; gap: 10px; }
+  .reference-home-visual { height: 300px; }
+  .reference-home-values > a { gap: 8px; font-size: 9px; }
+  .reference-product .hotspot-card { grid-template-columns: 82px 1fr; padding: 15px; column-gap: 13px; }
+  .reference-product .hotspot-card .hotspot-detail-image { height: 95px; }
+  .reference-product .hotspot-card p { font-size: 10px; }
+  .reference-product .view-tabs button { font-size: 9px; padding-inline: 8px; }
+  .reference-applications-copy h1 { font-size: 27px; }
+  .reference-mission-copy h2 { font-size: 16px; }
+  .reference-mission-copy p { font-size: 9px; }
+  .reference-mission-card { height: 300px; }
+  .reference-mission-tabs button { font-size: 9px; padding-inline: 5px; }
+  .reference-about-copy h1 { font-size: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reference-mission-robot { animation: none; }
+}
