@@ -1,5 +1,17 @@
 # GitHub Pages 发布
 
+## 自定义域名 astercor.space
+
+目标地址：https://astercor.space/ 。含原有开屏的地址：https://astercor.space/?intro=preview 。
+
+域名已在 GitHub Pages 绑定；阿里云 DNS 还需为主机记录 `@` 添加四条 A 记录：`185.199.108.153`、`185.199.109.153`、`185.199.110.153`、`185.199.111.153`。保留已有 `www` → `stellaaahang.github.io` 的 CNAME。
+
+只保留 `.github/workflows/deploy-pages.yml` 发布：它先构建 Vite，再上传 `dist-pages`。不要启用上传仓库根目录的静态模板工作流。
+
+工作流通过 `configure-pages` 自动获取自定义域名的根路径，无需更改网站布局。手动构建自定义域名版本时运行 `PAGES_BASE_PATH=/ npm run build:pages`。域名解析生效且证书可用后，在仓库 Settings → Pages 启用 Enforce HTTPS。
+
+官方配置说明：https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
+
 仓库：stellaaahang/Aster_Cora。正式地址：https://stellaaahang.github.io/Aster_Cora/ 。带开屏的预览：https://stellaaahang.github.io/Aster_Cora/?intro=preview 。
 
 ## 问题与修复
